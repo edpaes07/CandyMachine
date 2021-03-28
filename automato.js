@@ -11,7 +11,6 @@ window.onload = function() {
 function botoesEfeito(valor) {
 
     dinheiroEmCaixa = dinheiroEmCaixa + valor;
-    console.log(dinheiroEmCaixa)
     if(dinheiroEmCaixa == 0){
 
         $("#buttonA").prop("disabled",true)
@@ -48,6 +47,5 @@ function comprar(selecionado) {
     else if(selecionado == "C"){
         troco = dinheiroEmCaixa - 8;
     }
-    console.log(troco)
     return troco;
 }
