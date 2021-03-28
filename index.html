@@ -38,22 +38,13 @@
                     <div class="visor">
                         <p>0</p>
                     </div>
-
-                    
-
                     <div class="keyboard">
-                        <table>
-                            <tr>
-							    <td><input type="button" id="productA" value="A" /></td>
-							    <td><input type="button" id="productB" value="B" /></td>
-							    <td><input type="button" id="productC" value="C" /></td>
-						    </tr>
-                            <tr>
-							    <td><input type="button" id="number1" value= 1 /></td>
-							    <td><input type="button" id="number2" value= 2 /></td>
-							    <td><input type="button" id="number3" value= 5 /></td>
-						    </tr>
-                        </table>
+                        <button id="buttonA" onclick="comprar()">A</button>
+                        <button id="buttonB"  onclick="comprar()">B</button>
+                        <button id="buttonC"  onclick="comprar()" >C</button>
+                        <button onclick="botoesEfeito(1)">1</button>
+                        <button onclick="botoesEfeito (2)"> 2</button>
+                        <button onclick="botoesEfeito(5)">5</button>
                     </div>
                 </div>
                 <div class="diviser-right">
@@ -64,6 +55,8 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="automato.js"></script>
 </body>
 </html>

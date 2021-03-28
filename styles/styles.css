@@ -87,7 +87,7 @@
 }
 
 .visor p {
-    margin-top: 5px;
+    margin-top: 3px;
     text-align: center;
     color: white;
     font-family: 'Federant', cursive;
@@ -104,18 +104,18 @@
     padding: 10px;
 }
 
-.keyboard tr td input {
-    padding: 5px;
-    width: 100%;
+.keyboard button{
+    padding: 0px;
+    width: 25%;
     height: 30px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-    margin: 5px;
+    margin: 2px;
     text-align: center;
 }
-
-.keyboard td input:hover {
+  
+.keyboard button:hover {
     color: #fff;
     background-color: #546E7A;
   }
