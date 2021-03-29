@@ -151,12 +151,12 @@ body{
 .cat-fred{
     height: auto;
     transform: rotate(-6deg); 
-    margin-top: 10%;
+    margin-top: 120px;
 }
 
 .balao{
     width: 260px;
-    margin-bottom: 20%;
+    margin-bottom: 100px;
 }
 
 .cat-and-balon{
@@ -173,7 +173,7 @@ body{
   
 #balao figcaption {
     position: absolute;
-    top: 13%;
+    top: 35px;
     padding-left: 8%;
     width: 220px;
     font-size: 20px;
@@ -184,7 +184,49 @@ body{
 .catpng{
     display: flex;
     flex-direction: row;
-    margin-top: 230px;
-    margin-left: 675px;
+    margin-top: 185px;
+    margin-right: 680px;
     height: 300px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .cat-fred{
+        height: 150px;
+        transform: rotate(-6deg); 
+        margin-top: 460px; 
+        margin-left: 1080px;
+    }
+    
+    .cat-and-balon{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .balao{
+        position: absolute;
+        display: flex;
+        width: 200px;
+        margin-top: 30px; 
+        margin-left: 940px;
+    }
+      
+    #balao figcaption {
+        position: absolute;
+        margin-top: 22px; 
+        margin-left: 955px;
+        width: 170px;
+        font-size: 16px;
+        color: black;
+        text-align: center;
+    }
+    
+    .catpng{
+        display: flex;
+        flex-direction: row;
+        margin-top: 380px;
+        margin-right: 610px;
+        height: 200px;
+    }
 }
