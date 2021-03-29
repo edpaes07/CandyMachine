@@ -52,7 +52,7 @@ function comprar(selecionado) {
     visor.innerHTML = `R$${dinheiroEmCaixa}.00`;
 
     setInterval(() => {
-        resultText.innerHTML = `Muito Obrigado Humano!`;
+        resultText.innerHTML = `<br>Muito Obrigado Humano!`;
     }, 5000);
     resultText.innerHTML = `Você comprou o produto ${selecionado}, seu troco será R$${dinheiroEmCaixa}.00 reais!`;
 }
