@@ -5,6 +5,11 @@ body{
     background-image: url('../imgs/fundo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: url("../imgs/fingerpoint.png"), auto;
+}
+
+body:active{
+    cursor: url("../imgs/fingerpoint2.png"), auto;
 }
 
 .container{
