@@ -1,4 +1,4 @@
-var dinheiroEmCaixa = 0;
+var estado = 'R0';
 
 window.onload = function () {
     $("#buttonA").prop("disabled", true)
@@ -10,49 +10,53 @@ window.onload = function () {
 var visor = document.getElementById("visor");
 var resultText = document.getElementById("texto-balao");
 
-//função chamada sempre que adicionar um valor
+function habilitaBotao(novoEstado) {
+    if (novoEstado === 'R6') {
+        $("#buttonA").prop("disabled", false);
+    } else if (novoEstado === 'R7') {
+        $("#buttonA, #buttonB").prop("disabled", false);
+    } else if (['R8','R9','R10','R11', 'R12'].includes(novoEstado)) {
+        $("#buttonA, #buttonB, #buttonC").prop("disabled", false);
+        $("#number1, #number2, #number5").prop("disabled", true);
+    }
+}
+
 function botoesEfeito(valor) {
 
-    dinheiroEmCaixa = dinheiroEmCaixa + valor;
-    visor.innerHTML = `R$${dinheiroEmCaixa}.00`;
+    let estadoAtual = estado.match(/([0-9]+)/g)[0];
+    let novoEstado = 'R' + (parseInt(estadoAtual) + valor);
+    habilitaBotao(novoEstado);
 
-    if (dinheiroEmCaixa <= 5) {
-        $("#buttonA").prop("disabled", true)
-        $("#buttonB").prop("disabled", true)
-        $("#buttonC").prop("disabled", true)
-
-    } else if (dinheiroEmCaixa == 6 && dinheiroEmCaixa) {
-        $("#buttonA").prop("disabled", false)
-
-    } else if (dinheiroEmCaixa == 7) {
-        $("#buttonA").prop("disabled", false)
-        $("#buttonB").prop("disabled", false)
-
-    } else if (dinheiroEmCaixa >= 8) {
-        $("#buttonA").prop("disabled", false)
-        $("#buttonB").prop("disabled", false)
-        $("#buttonC").prop("disabled", false)
+    let valorVisor = parseInt(estadoAtual) + valor;
+    if (estadoAtual >= 0 && estadoAtual <= 12) {
+        estado = novoEstado;
+        visor.innerHTML = `R$ ${valorVisor},00`;
     }
 }
 
 function comprar(selecionado) {
 
-    //DOCE SELECIONADO
-    if (selecionado == "A") {
-        dinheiroEmCaixa -= 6;
+    let valorTroco = 0;
 
-    } else if (selecionado == "B") {
-        dinheiroEmCaixa -= 7;
-    }
-    else if (selecionado == "C") {
-        dinheiroEmCaixa -= 8;
+    if (selecionado === 'A') {
+        let estadosTroco = {'R6': 0, 'R7': 1, 'R8': 2, 'R9': 3, 'R10': 4, 'R11': 5, 'R12': 6};
+        valorTroco = estadosTroco[estado];
+    } else if (selecionado === 'B') {
+        let estadosTroco = {'R7': 0, 'R8': 1, 'R9': 2, 'R10': 3, 'R11': 4, 'R12': 5};
+        valorTroco = estadosTroco[estado];
+    } else if (selecionado === "C") {
+        let estadosTroco = {'R8': 0, 'R9': 1, 'R10': 2, 'R11': 3, 'R12': 4};
+        valorTroco = estadosTroco[estado];
     }
 
-    botoesEfeito(0)
-    visor.innerHTML = `R$${dinheiroEmCaixa}.00`;
+    estado = 'R0';
+    visor.innerHTML = `R$ 0.00`;
 
     setInterval(() => {
         resultText.innerHTML = `<br>Muito Obrigado Humano!`;
-    }, 5000);
-    resultText.innerHTML = `Você comprou o produto ${selecionado}, seu troco será R$${dinheiroEmCaixa}.00 reais!`;
+    }, 3500);
+    resultText.innerHTML = `Você comprou o produto ${selecionado}, seu troco será R$${valorTroco}.00 reais!`;
+
+    $("#buttonA, #buttonB, #buttonC").prop("disabled", true);
+    $("#number1, #number2, #number5").prop("disabled", false);
 }
