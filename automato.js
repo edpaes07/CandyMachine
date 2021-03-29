@@ -59,5 +59,4 @@ function comprar(selecionado) {
 
     $("#buttonA, #buttonB, #buttonC").prop("disabled", true);
     $("#number1, #number2, #number5").prop("disabled", false);
-
 }

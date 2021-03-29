@@ -49,8 +49,10 @@ body:active{
 }
 
 .diviser p{
-    color: white;
-    font-family: 'Federant', cursive;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .diviser img{
