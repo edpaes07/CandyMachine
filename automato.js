@@ -15,7 +15,7 @@ function habilitaBotao(novoEstado) {
         $("#buttonA").prop("disabled", false);
     } else if (novoEstado === 'R7') {
         $("#buttonA, #buttonB").prop("disabled", false);
-    } else if (['R8','R9','R10','R11', 'R12'].includes(novoEstado)) {
+    } else if (['R8', 'R9', 'R10', 'R11', 'R12'].includes(novoEstado)) {
         $("#buttonA, #buttonB, #buttonC").prop("disabled", false);
         $("#number1, #number2, #number5").prop("disabled", true);
     }
@@ -39,24 +39,25 @@ function comprar(selecionado) {
     let valorTroco = 0;
 
     if (selecionado === 'A') {
-        let estadosTroco = {'R6': 0, 'R7': 1, 'R8': 2, 'R9': 3, 'R10': 4, 'R11': 5, 'R12': 6};
+        let estadosTroco = { 'R6': 0, 'R7': 1, 'R8': 2, 'R9': 3, 'R10': 4, 'R11': 5, 'R12': 6 };
         valorTroco = estadosTroco[estado];
     } else if (selecionado === 'B') {
-        let estadosTroco = {'R7': 0, 'R8': 1, 'R9': 2, 'R10': 3, 'R11': 4, 'R12': 5};
+        let estadosTroco = { 'R7': 0, 'R8': 1, 'R9': 2, 'R10': 3, 'R11': 4, 'R12': 5 };
         valorTroco = estadosTroco[estado];
     } else if (selecionado === "C") {
-        let estadosTroco = {'R8': 0, 'R9': 1, 'R10': 2, 'R11': 3, 'R12': 4};
+        let estadosTroco = { 'R8': 0, 'R9': 1, 'R10': 2, 'R11': 3, 'R12': 4 };
         valorTroco = estadosTroco[estado];
     }
 
     estado = 'R0';
     visor.innerHTML = `R$ 0.00`;
 
-    setInterval(() => {
+    setTimeout(() => {
         resultText.innerHTML = `<br>Muito Obrigado Humano!`;
     }, 3500);
     resultText.innerHTML = `Você comprou o produto ${selecionado}, seu troco será R$${valorTroco}.00 reais!`;
 
     $("#buttonA, #buttonB, #buttonC").prop("disabled", true);
     $("#number1, #number2, #number5").prop("disabled", false);
+
 }

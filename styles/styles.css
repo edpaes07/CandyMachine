@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
 
+body{
+    background-image: url('../imgs/fundo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container{
     display: flex;
     padding-top: 3%;
@@ -178,7 +184,7 @@
 .catpng{
     display: flex;
     flex-direction: row;
-    margin-top: 245px;
+    margin-top: 230px;
     margin-left: 675px;
     height: 300px;
 }
