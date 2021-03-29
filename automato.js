@@ -4,15 +4,17 @@ window.onload = function () {
     $("#buttonA").prop("disabled", true)
     $("#buttonB").prop("disabled", true)
     $("#buttonC").prop("disabled", true)
+
 };
 
 var visor = document.getElementById("visor");
+var resultText = document.getElementById("texto-balao");
 
 //função chamada sempre que adicionar um valor
 function botoesEfeito(valor) {
 
     dinheiroEmCaixa = dinheiroEmCaixa + valor;
-    visor.innerHTML = dinheiroEmCaixa;
+    visor.innerHTML = `R$${dinheiroEmCaixa}.00`;
 
     if (dinheiroEmCaixa <= 5) {
         $("#buttonA").prop("disabled", true)
@@ -47,5 +49,10 @@ function comprar(selecionado) {
     }
 
     botoesEfeito(0)
-    visor.innerHTML = dinheiroEmCaixa
+    visor.innerHTML = `R$${dinheiroEmCaixa}.00`;
+
+    setInterval(() => {
+        resultText.innerHTML = `Muito Obrigado Humano!`;
+    }, 5000);
+    resultText.innerHTML = `Você comprou o produto ${selecionado}, seu troco será R$${dinheiroEmCaixa}.00 reais!`;
 }
